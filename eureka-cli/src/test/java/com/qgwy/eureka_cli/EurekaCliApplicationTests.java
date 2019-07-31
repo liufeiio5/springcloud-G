@@ -1,4 +1,4 @@
-package com.qgwy.eurekacli;
+package com.qgwy.eureka_cli;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
