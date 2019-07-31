@@ -1,0 +1,43 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+*.pdb
+logs/
+log/
+src/main/webapp/WEB-INF/ureportfiles/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+.mvn
+docs
+*.iws
+*.iml
+*.ipr
+mvnw
+mvnw.cmd
+rebel.xml
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+.nb-gradle/
+.idea/vcs.xml
+.idea/workspace.xml
+src/test/
+
+### VS Code ###
+.vscode/

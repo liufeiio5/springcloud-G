@@ -1,0 +1,45 @@
+server:
+  port: 28834
+eureka:
+  instance:
+    hostname: peer1
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://peer2:28835/eureka/,http://peer3:28836/eureka/
+      #defaultZone: http://${eurekaHost}:${server.port}/eureka/
+spring:
+  profiles: peer1
+  application:
+    name: eureka-server-${server.port}
+---
+server:
+  port: 28835
+spring:
+  profiles: peer2
+  application:
+    name: eureka-server-${server.port}
+eureka:
+  instance:
+    hostname: peer2
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:28834/eureka/,http://peer3:28836/eureka/
+
+---
+server:
+  port: 28836
+spring:
+  profiles: peer3
+  application:
+    name: eureka-server-${server.port}
+eureka:
+  instance:
+    hostname: peer3
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:28834/eureka/,http://peer2:28835/eureka/
