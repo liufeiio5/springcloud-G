@@ -11,7 +11,7 @@ server:
         defaultZone: http://localhost:8761/eureka/
 spring:
   application:
-    name: ribbon-client-${server.port}
+    name: ribbon-client
   profiles: 8761
 ---
 server:
@@ -27,5 +27,5 @@ eureka:
       defaultZone: http://localhost:28834/eureka/
 spring:
   application:
-    name: ribbon-client-${server.port}
+    name: ribbon-client
   profiles: 28834

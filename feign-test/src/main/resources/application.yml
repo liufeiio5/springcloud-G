@@ -11,7 +11,7 @@ eureka:
       defaultZone: http://localhost:28834/eureka/
 spring:
   application:
-    name: feign-client-${server.port}
+    name: feign-client
   profiles: 28834
 feign:
   hystrix:

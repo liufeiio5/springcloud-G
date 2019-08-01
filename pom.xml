@@ -22,6 +22,7 @@
         <module>eureka</module>
         <module>ribbon-test</module>
         <module>feign-test</module>
+        <module>turbine-test</module>
     </modules>
     <dependencyManagement>
         <dependencies>
