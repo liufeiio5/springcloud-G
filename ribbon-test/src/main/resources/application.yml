@@ -1,0 +1,31 @@
+server:
+  port: 18840
+  eureka:
+    instance:
+      hostname: localhost
+      prefer-ip-address: true
+    client:
+      fetch-registry: true
+      register-with-eureka: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: ribbon-client-${server.port}
+  profiles: 8761
+---
+server:
+  port: 18841
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  application:
+    name: ribbon-client-${server.port}
+  profiles: 28834

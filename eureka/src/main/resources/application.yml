@@ -10,6 +10,8 @@ eureka:
     service-url:
       defaultZone: http://peer2:28835/eureka/,http://peer3:28836/eureka/
       #defaultZone: http://${eurekaHost}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
 spring:
   profiles: peer1
   application:

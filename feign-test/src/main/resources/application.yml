@@ -1,0 +1,18 @@
+server:
+  port: 18850
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  application:
+    name: feign-client-${server.port}
+  profiles: 28834
+feign:
+  hystrix:
+    enabled: true

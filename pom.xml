@@ -20,6 +20,8 @@
     <modules>
         <module>eureka-cli</module>
         <module>eureka</module>
+        <module>ribbon-test</module>
+        <module>feign-test</module>
     </modules>
     <dependencyManagement>
         <dependencies>
