@@ -1,0 +1,24 @@
+server:
+  port: 18870
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  application:
+    name: zuul-test
+  profiles: 28834
+
+zuul:
+  routes:
+    feign-app:
+      path: /feign/**
+      serviceId: feign-client
+    ribbon-app:
+      path: /ribbon/**
+      serviceId: ribbon-client

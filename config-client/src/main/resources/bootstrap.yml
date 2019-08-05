@@ -1,0 +1,81 @@
+server:
+  port: 18890
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  profiles: native
+  cloud:
+    config:
+      uri: http://localhost:18881
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server-native
+      label: master
+      fail-fast: true
+    bus:
+      #enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.100.51
+    username: admin
+    password: admin
+    virtual-host: my_vhost
+
+  application:
+    name: config-client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,refresh
+
+---
+server:
+  port: 18891
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  profiles: git
+#    active:
+  cloud:
+    bus:
+      #enabled: true
+      trace:
+        enabled: true
+    config:
+      uri: http://localhost:18880
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server-git
+      fail-fast: true
+  application:
+    name: config-client
+  rabbitmq:
+    host: 192.168.100.51
+    username: admin
+    password: admin
+    virtual-host: my_vhost
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,refresh
+

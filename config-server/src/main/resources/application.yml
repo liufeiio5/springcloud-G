@@ -1,0 +1,80 @@
+server:
+  port: 18880
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  application:
+    name: config-server-git
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    config:
+      server:
+        git:
+          #uri: https://github.com/gaojingyuan/springcloud
+          uri: http://192.168.100.32/template/test.git
+          searchPaths: config
+          username: ENC(PIsi0keZoIvyrTuzkeBD1g==)
+          password: ENC(RfryWCDBp+BC6QYpf0kcGmq7AldZVxTq)
+        health:
+          repositories:
+            check:
+              name: check-repo
+              label: master
+              profiles: default
+      label: master
+      fail-fast: true
+  profiles: git
+#    active: git
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,refresh
+
+---
+server:
+  port: 18881
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:28834/eureka/
+spring:
+  application:
+    name: config-server-native
+  profiles: native
+#    active: native
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    config:
+#      profile: native
+      server:
+        native:
+          # search-locations: classpath:/
+      discovery:
+        enabled: true
+    refresh:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,refresh
+

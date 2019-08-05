@@ -21,6 +21,12 @@ public class RibbonController {
         return helloService.hiService(name);
     }
 
+    @RequestMapping(value = "/hi/http")
+    @ResponseBody
+    public String hiHttp(@RequestParam String name) {
+        return helloService.testHttp(name);
+    }
+
 
     public String errorFallback(@RequestParam String name){
         return "暂时无法访问，请稍后再试";

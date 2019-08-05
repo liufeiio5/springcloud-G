@@ -14,4 +14,8 @@ public class HelloService {
         return restTemplate.getForObject("http://eureka-client/hi?name="+name,String.class);
     }
 
+    public String testHttp(String name) {
+        return restTemplate.getForObject("http://192.168.100.56:18836/hi?name="+name,String.class);
+    }
+
 }
