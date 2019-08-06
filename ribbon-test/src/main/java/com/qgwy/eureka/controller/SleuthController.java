@@ -1,4 +1,4 @@
-package com.qgwy.ribbon_test.controller;
+package com.qgwy.eureka.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 

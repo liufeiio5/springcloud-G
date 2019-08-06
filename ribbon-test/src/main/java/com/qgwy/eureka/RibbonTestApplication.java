@@ -1,4 +1,4 @@
-package com.qgwy.ribbon_test;
+package com.qgwy.eureka;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;

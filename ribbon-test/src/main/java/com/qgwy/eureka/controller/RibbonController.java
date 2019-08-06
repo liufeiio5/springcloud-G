@@ -1,7 +1,7 @@
-package com.qgwy.ribbon_test.controller;
+package com.qgwy.eureka.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.qgwy.ribbon_test.service.HelloService;
+import com.qgwy.eureka.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

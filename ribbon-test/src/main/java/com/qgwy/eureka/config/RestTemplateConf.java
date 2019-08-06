@@ -1,4 +1,4 @@
-package com.qgwy.ribbon_test.config;
+package com.qgwy.eureka.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

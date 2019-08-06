@@ -3,45 +3,55 @@ server:
 eureka:
   instance:
     hostname: peer1
-    prefer-ip-address: true
+    prefer-ip-address: false
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
-      defaultZone: http://peer2:28835/eureka/,http://peer3:28836/eureka/
+      defaultZone: http://admin:eureka@peer2:28835/eureka/,http://admin:eureka@peer3:28836/eureka/
       #defaultZone: http://${eurekaHost}:${server.port}/eureka/
   server:
     enable-self-preservation: false
 spring:
   profiles: peer1
+  security:
+    user:
+      name: admin
+      password: eureka
   application:
-    name: eureka-server-${server.port}
+    name: eureka-server
 ---
 server:
   port: 28835
 spring:
   profiles: peer2
+  security:
+    user:
+      name: admin
+      password: eureka
   application:
-    name: eureka-server-${server.port}
+    name: eureka-server
+
 eureka:
-  instance:
-    hostname: peer2
-    preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://peer1:28834/eureka/,http://peer3:28836/eureka/
-
+      defaultZone: http://admin:eureka@peer1:28834/eureka/,http://admin:eureka@peer3:28836/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: peer2
 ---
 server:
   port: 28836
 spring:
   profiles: peer3
+  security:
+    user:
+      name: admin
+      password: eureka
   application:
-    name: eureka-server-${server.port}
+    name: eureka-server
 eureka:
   instance:
     hostname: peer3
-    preferIpAddress: true
+    prefer-ip-address: false
   client:
     serviceUrl:
-      defaultZone: http://peer1:28834/eureka/,http://peer2:28835/eureka/
+      defaultZone: http://admin:eureka@peer1:28834/eureka/,http://admin:eureka@peer2:28835/eureka/

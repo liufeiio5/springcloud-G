@@ -26,7 +26,6 @@
         <module>zuul-test</module>
         <module>config-server</module>
         <module>config-client</module>
-        <module>zipkin-server</module>
     </modules>
     <dependencyManagement>
         <dependencies>

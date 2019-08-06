@@ -1,4 +1,4 @@
-package com.qgwy.ribbon_test.service;
+package com.qgwy.eureka.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

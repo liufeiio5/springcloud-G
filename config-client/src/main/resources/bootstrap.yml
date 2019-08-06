@@ -8,7 +8,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:28834/eureka/
+      defaultZone: http://admin:eureka@peer1:28834/eureka/,http://admin:eureka@peer2:28835/eureka/,http://admin:eureka@peer2:28836/eureka/
 spring:
   profiles: native
   cloud:
@@ -49,7 +49,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:28834/eureka/
+      defaultZone: http://admin:eureka@peer1:28834/eureka/,http://admin:eureka@peer2:28835/eureka/,http://admin:eureka@peer2:28836/eureka/
 spring:
   profiles: git
 #    active:
