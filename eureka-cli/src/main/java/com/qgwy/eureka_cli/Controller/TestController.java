@@ -19,10 +19,19 @@ public class TestController {
     @Value("${server.port}")
     private String port;
 
+    @Value("${apollo-name:ssss}")
+    private String apolloName;
+
     @RequestMapping("/hi")
     @ResponseBody
     public String home(@RequestParam String name) {
         return "hi "+name+",i am from port:" +port;
+    }
+
+    @RequestMapping("/hi/apollo")
+    @ResponseBody
+    public String apollo() {
+        return "hi "+apolloName+",i am from port:" +port;
     }
 
 
